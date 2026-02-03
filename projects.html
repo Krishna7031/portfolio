@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Projects | Sai Krishna</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="container">
+  <span class="section-label">PROJECTS</span>
+  <h2 class="section-title">Infrastructure & Automation Work</h2>
+
+  <div id="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;"></div>
+</section>
+
+<script src="js/projects.js"></script>
+<script>
+  const grid = document.getElementById("projects-grid");
+  projects.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <p style="margin:12px 0">${p.summary}</p>
+      <a href="project.html?id=${p.id}" class="btn-secondary">View Case Study →</a>
+    `;
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
