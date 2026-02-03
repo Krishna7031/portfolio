@@ -63,9 +63,10 @@ h1, h2, h3 {
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent-tech);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
+
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-tech), #0EA5E9);
@@ -95,3 +96,4 @@ h1, h2, h3 {
   opacity: 1;
   transform: translateY(0);
 }
+
