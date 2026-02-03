@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Projects | Sai Krishna</title>
+
+  <!-- SEO -->
+  <meta name="description"
+        content="Infrastructure, automation, Kubernetes, and cloud engineering projects by Sai Krishna.">
+  <meta name="author" content="Sai Krishna">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<section class="container">
-  <span class="section-label">PROJECTS</span>
-  <h2 class="section-title">Infrastructure & Automation Work</h2>
+  <!-- PROJECTS SECTION -->
+  <section class="container reveal">
+    <span class="section-label">PROJECTS</span>
+    <h2 class="section-title">Infrastructure & Automation Work</h2>
 
-  <div id="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;"></div>
-</section>
+    <div id="projects-grid"
+         style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+    </div>
+  </section>
 
-<script src="js/projects.js"></script>
-<script>
-  const grid = document.getElementById("projects-grid");
-  projects.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <h3>${p.title}</h3>
-      <p style="margin:12px 0">${p.summary}</p>
-      <a href="project.html?id=${p.id}" class="btn-secondary">View Case Study →</a>
-    `;
-    grid.appendChild(card);
-  });
-</script>
+  <!-- Scripts -->
+  <script src="js/projects.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    const grid = document.getElementById("projects-grid");
+
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h3>${p.title}</h3>
+        <p style="margin:12px 0">${p.summary}</p>
+        <a href="project.html?id=${p.id}" class="btn-secondary">
+          View Case Study →
+        </a>
+      `;
+
+      grid.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>
