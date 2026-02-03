@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project | Sai Krishna</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="container" id="project"></section>
+
+<script src="js/projects.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const project = projects.find(p => p.id === params.get("id"));
+
+  const el = document.getElementById("project");
+
+  if (!project) {
+    el.innerHTML = "<h2>Project not found</h2>";
+  } else {
+    el.innerHTML = `
+      <span class="section-label">CASE STUDY</span>
+      <h1>${project.title}</h1>
+      <p style="margin:16px 0">${project.description}</p>
+
+      <h3>Tech Stack</h3>
+      <p>${project.stack.join(", ")}</p>
+
+      <a href="${project.github}" target="_blank" class="btn-primary" style="margin-top:24px;">
+        View on GitHub
+      </a>
+    `;
+  }
+</script>
+
+</body>
+</html>
