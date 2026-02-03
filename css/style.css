@@ -97,3 +97,10 @@ h1, h2, h3 {
   transform: translateY(0);
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent-tech);
+  outline-offset: 4px;
+}
+
+
+
