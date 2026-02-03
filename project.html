@@ -1,37 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Project | Sai Krishna</title>
+
+  <!-- SEO -->
+  <meta name="description"
+        content="Detailed DevOps and cloud infrastructure case study by Sai Krishna.">
+  <meta name="author" content="Sai Krishna">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<section class="container" id="project"></section>
+  <!-- PROJECT DETAIL -->
+  <section class="container reveal" id="project"></section>
 
-<script src="js/projects.js"></script>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const project = projects.find(p => p.id === params.get("id"));
+  <!-- Scripts -->
+  <script src="js/projects.js"></script>
+  <script src="js/reveal.js"></script>
 
-  const el = document.getElementById("project");
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const project = projects.find(p => p.id === params.get("id"));
 
-  if (!project) {
-    el.innerHTML = "<h2>Project not found</h2>";
-  } else {
-    el.innerHTML = `
-      <span class="section-label">CASE STUDY</span>
-      <h1>${project.title}</h1>
-      <p style="margin:16px 0">${project.description}</p>
+    const el = document.getElementById("project");
 
-      <h3>Tech Stack</h3>
-      <p>${project.stack.join(", ")}</p>
+    if (!project) {
+      el.innerHTML = `
+        <h2>Project not found</h2>
+        <p>The requested case study does not exist.</p>
+      `;
+    } else {
+      el.innerHTML = `
+        <span class="section-label">CASE STUDY</span>
+        <h1>${project.title}</h1>
 
-      <a href="${project.github}" target="_blank" class="btn-primary" style="margin-top:24px;">
-        View on GitHub
-      </a>
-    `;
-  }
-</script>
+        <p style="margin:24px 0; max-width:800px;">
+          ${project.description}
+        </p>
+
+        <h3 style="margin-top:40px;">Tech Stack</h3>
+        <p style="margin:12px 0 32px 0;">
+          ${project.stack.join(", ")}
+        </p>
+
+        <a href="${project.github}"
+           target="_blank"
+           rel="noopener"
+           class="btn-primary">
+          View on GitHub
+        </a>
+      `;
+    }
+  </script>
 
 </body>
 </html>
